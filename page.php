@@ -9,7 +9,9 @@
                         <?php the_title(); ?>
                         <!-- PAGE TITLE -->
                         <!-- EDIT PAGE -->
-                        <?php edit_post_link(); ?>
+                        <?php
+                        // edit_post_link();
+                        ?>
                         <!-- EDIT PAGE -->
                         <div class="entry-content" itemprop="mainContentOfPage">
                             <?php if (has_post_thumbnail()) {

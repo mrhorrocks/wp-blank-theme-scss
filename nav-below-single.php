@@ -1,4 +1,4 @@
-<h1>NAV-BELOW-SINGLE.php</h1>
+<h1>ENTRY-FOOTER.php</h1>
 <?php $args = array(
     'prev_text' => '<span class="meta-nav">&larr;</span> %title',
     'next_text' => '%title <span class="meta-nav">&rarr;</span>'
