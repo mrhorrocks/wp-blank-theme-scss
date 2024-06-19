@@ -1,0 +1,14 @@
+{
+  "name": "blankslate",
+  "version": "1.0.0",
+  "description": "Wordpress Theme",
+  "scripts": {
+    "sass": "sass --watch customstyles/partials/_custom.scss customstyles/custom.css"
+  },
+  "devDependencies": {
+    "sass": "^1.77.4"
+  },
+  "dependencies": {
+    "prettier": "^3.3.2"
+  }
+}
