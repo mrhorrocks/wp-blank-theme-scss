@@ -1,3 +1,8 @@
-header {
+header#app-header {
   background-color: #7c7c7c;
+  /* display: flex; */
+  div#logo {
+    background-color: lawngreen;
+    /* font-size: 0; */
+  }
 }

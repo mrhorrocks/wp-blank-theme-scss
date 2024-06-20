@@ -1,6 +1,9 @@
-<h1>ENTRY-FOOTER.php</h1>
+<h1>NAV-BELOW-SINGLE.php</h1>
+<!-- NEXT/PREVIOUS POST -->
 <?php $args = array(
     'prev_text' => '<span class="meta-nav">&larr;</span> %title',
     'next_text' => '%title <span class="meta-nav">&rarr;</span>'
 );
 the_post_navigation($args);
+?>
+<!-- NEXT/PREVIOUS POST -->
