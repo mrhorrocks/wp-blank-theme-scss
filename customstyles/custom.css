@@ -563,19 +563,36 @@ header#app-header div#logo {
   /* font-size: 0; */
 }
 
-nav {
+nav .hamburger {
+  /* hamburger */
+}
+nav .hamburger button {
+  width: 50px;
+  height: 50px;
+}
+nav .hamburger .hamburger-links {
+  /* display: none; */
+}
+@media (min-width: 768px) {
+  nav .hamburger {
+    display: none;
+  }
+}
+nav .desktop-view {
+  display: none;
   background-color: chocolate;
   padding-inline-start: 0;
   margin-block: 0em;
+  /* nav */
 }
-nav ul {
+nav .desktop-view ul {
   display: flex;
   list-style: none;
 }
-nav ul li:not(:hover) ul.sub-menu {
+nav .desktop-view ul li:not(:hover) ul.sub-menu {
   display: none;
 }
-nav ul li a {
+nav .desktop-view ul li a {
   display: flex;
   background-color: pink;
   color: black;
@@ -583,11 +600,19 @@ nav ul li a {
   padding: 1rem;
   cursor: pointer;
 }
-nav ul li a:hover {
+nav .desktop-view ul li a:hover {
   background-color: #ff5a77;
 }
-nav ul li ul.sub-menu li a {
+nav .desktop-view ul li ul.sub-menu li {
+  position: absolute;
+}
+nav .desktop-view ul li ul.sub-menu li a {
   background-color: aqua;
+}
+@media (min-width: 768px) {
+  nav .desktop-view {
+    display: block;
+  }
 }
 
 section#front-page .page-content {

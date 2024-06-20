@@ -178,7 +178,7 @@ function blankscss_comment_count($count)
     }
 }
 
-// LOAD CSS HERE
+// LOAD CSS
 function load_stylesheets()
 {
     // custom.css
@@ -191,9 +191,13 @@ function load_stylesheets()
 }
 add_action('wp_enqueue_scripts', 'load_stylesheets');
 
-// LOAD SCRIPTS HERE
+// LOAD SCRIPTS
 function addjs()
 {
+    // LOAD JQUERY
+    // Enqueue the default WordPress jQuery
+    wp_enqueue_script('jquery');
+
     // custom.js
     wp_register_script('custom', get_template_directory_uri() . '/js/custom.js', array(), 1, 1, 1);
     wp_enqueue_script('custom');

@@ -3,11 +3,9 @@
 
 <head>
     <meta charset="<?php bloginfo('charset'); ?>">
-    <meta name="viewport" content="width=device-width">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <?php wp_head(); ?>
 </head>
-
-<!-- <body <?php body_class(); ?>> -->
 
 <body>
     <?php
@@ -33,15 +31,35 @@
                 <div class="col-span-1">
                     <!-- MAIN NAV -->
                     <nav id="menu" role="navigation">
-                        <?php
-                        wp_nav_menu(
-                            array(
-                                'theme_location' => 'main-menu',
-                                'container' => 'ul',
-                                'menu_class' => 'top_menu_class'
-                            )
-                        );
-                        ?>
+                        <div class="hamburger">
+                            <button>
+                                -<br />
+                                -<br />
+                                -
+                            </button>
+                            <div class="hamburger-links">
+                                <?php
+                                wp_nav_menu(
+                                    array(
+                                        'theme_location' => 'main-menu',
+                                        'container' => 'ul',
+                                        'menu_class' => 'top-nav-menu'
+                                    )
+                                );
+                                ?>
+                            </div>
+                        </div>
+                        <div class="desktop-view">
+                            <?php
+                            wp_nav_menu(
+                                array(
+                                    'theme_location' => 'main-menu',
+                                    'container' => 'ul',
+                                    'menu_class' => 'top-nav-menu'
+                                )
+                            );
+                            ?>
+                        </div>
                     </nav>
                     <!-- MAIN NAV -->
                 </div>
