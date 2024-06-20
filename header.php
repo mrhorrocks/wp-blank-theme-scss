@@ -31,11 +31,10 @@
                 <div class="col-span-1">
                     <!-- MAIN NAV -->
                     <nav id="menu" role="navigation">
+
                         <div class="hamburger">
                             <button>
-                                ---<br />
-                                ---<br />
-                                ---
+                                <?php include 'hamburger_icon.php'; ?>
                             </button>
                             <div class="hamburger-links">
                                 <?php
@@ -49,6 +48,7 @@
                                 ?>
                             </div>
                         </div>
+
                         <div class="desktop-links">
                             <?php
                             wp_nav_menu(
@@ -60,6 +60,7 @@
                             );
                             ?>
                         </div>
+
                     </nav>
                     <!-- MAIN NAV -->
                 </div>
