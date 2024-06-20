@@ -5,11 +5,9 @@ nav {
   ul {
     display: flex;
     list-style: none;
-
     li {
-      display: flex;
-      &:hover {
-        background-color: darken(white, 20%);
+      &:not(:hover) ul.sub-menu {
+        display: none;
       }
       a {
         display: flex;
@@ -18,6 +16,16 @@ nav {
         text-decoration: none;
         padding: 1rem;
         cursor: pointer;
+        &:hover {
+          background-color: darken(pink, 20%);
+        }
+      }
+      ul.sub-menu {
+        li {
+          a {
+            background-color: aqua;
+          }
+        }
       }
     }
   }
