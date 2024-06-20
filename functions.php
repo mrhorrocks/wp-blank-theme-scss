@@ -171,8 +171,8 @@ function blankscss_comment_count($count)
         global $id;
         $get_comments = get_comments('status=approve&post_id=' . $id);
         $comments_by_type = separate_comments($get_comments);
-        return count($comments_by_type['comment']);
-        // return count($comments_by_type['comment'] = $get_comments);
+        // return count($comments_by_type['comment']);
+        return count($comments_by_type['comment'] = $get_comments);
     } else {
         return $count;
     }
