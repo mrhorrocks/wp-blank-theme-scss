@@ -17,7 +17,7 @@
         <header id="app-header">
 
             <div class="grid cols-2">
-                <div>
+                <div class="col-span-1">
                     <!-- LOGO -->
                     <div id="logo">
                         <?php if (get_header_image()) : ?>
@@ -30,10 +30,11 @@
                     </div>
                     <!-- LOGO -->
                 </div>
-                <div>
+                <div class="col-span-1">
                     <!-- MAIN NAV -->
                     <nav id="menu" role="navigation">
-                        <?php wp_nav_menu(
+                        <?php
+                        wp_nav_menu(
                             array(
                                 'theme_location' => 'main-menu',
                                 'container' => 'ul',
