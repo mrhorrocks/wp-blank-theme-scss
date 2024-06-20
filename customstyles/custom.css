@@ -571,28 +571,29 @@ nav .hamburger button {
   height: 50px;
 }
 nav .hamburger .hamburger-links {
-  /* display: none; */
+  position: absolute;
+  display: none;
 }
 @media (min-width: 768px) {
   nav .hamburger {
     display: none;
   }
 }
-nav .desktop-view {
+nav .desktop-links {
   display: none;
   background-color: chocolate;
   padding-inline-start: 0;
   margin-block: 0em;
   /* nav */
 }
-nav .desktop-view ul {
+nav .desktop-links ul {
   display: flex;
   list-style: none;
 }
-nav .desktop-view ul li:not(:hover) ul.sub-menu {
+nav .desktop-links ul li:not(:hover) ul.sub-menu {
   display: none;
 }
-nav .desktop-view ul li a {
+nav .desktop-links ul li a {
   display: flex;
   background-color: pink;
   color: black;
@@ -600,17 +601,20 @@ nav .desktop-view ul li a {
   padding: 1rem;
   cursor: pointer;
 }
-nav .desktop-view ul li a:hover {
+nav .desktop-links ul li a:hover {
   background-color: #ff5a77;
 }
-nav .desktop-view ul li ul.sub-menu li {
+nav .desktop-links ul li ul.sub-menu {
+  background-color: green;
   position: absolute;
+  display: flex;
+  flex-direction: column;
 }
-nav .desktop-view ul li ul.sub-menu li a {
+nav .desktop-links ul li ul.sub-menu li a {
   background-color: aqua;
 }
 @media (min-width: 768px) {
-  nav .desktop-view {
+  nav .desktop-links {
     display: block;
   }
 }

@@ -5,14 +5,15 @@ nav {
       height: 50px;
     }
     .hamburger-links {
-      /* display: none; */
+      position: absolute;
+      display: none;
     }
     /* hamburger */
     @media (min-width: 768px) {
       display: none;
     }
   }
-  .desktop-view {
+  .desktop-links {
     display: none;
     background-color: chocolate;
     padding-inline-start: 0;
@@ -36,8 +37,11 @@ nav {
           }
         }
         ul.sub-menu {
+          background-color: green;
+          position: absolute;
+          display: flex;
+          flex-direction: column;
           li {
-            position: absolute;
             a {
               background-color: aqua;
             }

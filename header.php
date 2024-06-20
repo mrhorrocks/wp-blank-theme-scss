@@ -33,9 +33,9 @@
                     <nav id="menu" role="navigation">
                         <div class="hamburger">
                             <button>
-                                -<br />
-                                -<br />
-                                -
+                                ---<br />
+                                ---<br />
+                                ---
                             </button>
                             <div class="hamburger-links">
                                 <?php
@@ -49,7 +49,7 @@
                                 ?>
                             </div>
                         </div>
-                        <div class="desktop-view">
+                        <div class="desktop-links">
                             <?php
                             wp_nav_menu(
                                 array(
@@ -66,9 +66,11 @@
             </div>
 
             <!-- APP DESCRIPTION -->
-            <div id="app-description">
-                <?php bloginfo('description'); ?>
-            </div>
+            <?php if (get_bloginfo('description')  !== '') { ?>
+                <div id="app-description">
+                    <?php bloginfo('description'); ?>
+                </div>
+            <?php } ?>
             <!-- APP DESCRIPTION -->
 
             <!-- SEARCH -->
