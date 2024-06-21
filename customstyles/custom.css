@@ -557,49 +557,53 @@ html body {
 
 header#app-header {
   background-color: #7c7c7c;
-  /* display: flex; */
 }
 header#app-header div#logo {
+  display: flex;
+  justify-content: space-between;
   background-color: lawngreen;
   font-size: 0;
 }
 
-nav {
-  background-color: pink;
-  display: flex;
-  justify-content: flex-end;
-}
-nav .hamburger {
+.hamburger {
   /* hamburger */
 }
-nav .hamburger button {
+.hamburger button {
   width: 48px;
   height: 48px;
 }
-nav .hamburger .hamburger-links {
-  position: absolute;
-  display: none;
-}
-@media (min-width: 768px) {
-  nav .hamburger {
+@media (min-width: 576px) {
+  .hamburger {
     display: none;
   }
 }
-nav .desktop-links {
-  display: none;
+
+nav {
   background-color: chocolate;
-  padding-inline-start: 0;
-  margin-block: 0em;
+  display: flex;
+  justify-content: flex-end;
+}
+nav .nav-menu-links {
+  display: none;
+  width: 100%;
   /* nav */
 }
-nav .desktop-links ul {
+nav .nav-menu-links ul {
   display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
   list-style: none;
+  width: 100%;
 }
-nav .desktop-links ul li:not(:hover) ul.sub-menu {
+@media (min-width: 576px) {
+  nav .nav-menu-links ul {
+    flex-direction: row;
+  }
+}
+nav .nav-menu-links ul li:not(:hover) ul.sub-menu {
   display: none;
 }
-nav .desktop-links ul li a {
+nav .nav-menu-links ul li a {
   display: flex;
   background-color: pink;
   color: black;
@@ -607,20 +611,32 @@ nav .desktop-links ul li a {
   padding: 1rem;
   cursor: pointer;
 }
-nav .desktop-links ul li a:hover {
+nav .nav-menu-links ul li a:hover {
   background-color: #ff5a77;
 }
-nav .desktop-links ul li ul.sub-menu {
+nav .nav-menu-links ul li a:focus {
+  border-bottom: 10px solid red;
+}
+nav .nav-menu-links ul li ul.sub-menu {
   background-color: green;
-  position: absolute;
+  /* position: absolute; */
   display: flex;
   flex-direction: column;
 }
-nav .desktop-links ul li ul.sub-menu li a {
+@media (min-width: 576px) {
+  nav .nav-menu-links ul li ul.sub-menu {
+    width: auto;
+    position: absolute;
+  }
+}
+nav .nav-menu-links ul li ul.sub-menu li a {
   background-color: aqua;
 }
+nav .nav-menu-links ul li ul.sub-menu li a:hover {
+  background-color: #00b3b3;
+}
 @media (min-width: 768px) {
-  nav .desktop-links {
+  nav .nav-menu-links {
     display: block;
   }
 }

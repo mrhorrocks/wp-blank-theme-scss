@@ -13,10 +13,47 @@
     ?>
     <div class="container">
         <header id="app-header">
-
             <div class="grid cols-2">
-                <div class="col-span-1">
+
+                <div id="logo" class="col-span-2 sm:col-span-1">
                     <!-- LOGO -->
+                    <?php if (get_header_image()) : ?>
+                        <h1>
+                            <a href="<?php echo esc_url(home_url('/')); ?>" rel="home" title="<?php echo esc_attr(get_bloginfo('name')); ?>">
+                                <img src="<?php header_image(); ?>" width="<?php echo absint(get_custom_header()->width); ?>" height="<?php echo absint(get_custom_header()->height); ?>" alt="<?php echo esc_attr(get_bloginfo('name', 'display')); ?>">
+                            </a>
+                        </h1>
+                    <?php endif; ?>
+                    <!-- LOGO -->
+
+                    <div class="hamburger">
+                        <button>
+                            <?php include 'hamburger_icon.php'; ?>
+                        </button>
+                    </div>
+                </div>
+
+                <nav class="col-span-2 sm:col-span-1">
+                    <div class="nav-menu-links">
+                        <?php
+                        wp_nav_menu(
+                            array(
+                                'theme_location' => 'main-menu',
+                                'container' => 'ul',
+                                'menu_class' => 'top-nav-menu'
+                            )
+                        );
+                        ?>
+                    </div>
+                </nav>
+            </div>
+
+
+
+
+            <!-- <div class="grid cols-2">
+                <div class="col-span-2">
+
                     <div id="logo">
                         <?php if (get_header_image()) : ?>
                             <h1>
@@ -26,29 +63,8 @@
                             </h1>
                         <?php endif; ?>
                     </div>
-                    <!-- LOGO -->
-                </div>
-                <div class="col-span-1">
-                    <!-- MAIN NAV -->
+
                     <nav id="menu" role="navigation">
-
-                        <div class="hamburger">
-                            <button>
-                                <?php include 'hamburger_icon.php'; ?>
-                            </button>
-                            <div class="hamburger-links">
-                                <?php
-                                wp_nav_menu(
-                                    array(
-                                        'theme_location' => 'main-menu',
-                                        'container' => 'ul',
-                                        'menu_class' => 'top-nav-menu'
-                                    )
-                                );
-                                ?>
-                            </div>
-                        </div>
-
                         <div class="desktop-links">
                             <?php
                             wp_nav_menu(
@@ -60,11 +76,15 @@
                             );
                             ?>
                         </div>
-
+                        <div class="hamburger">
+                            <button>
+                                <?php include 'hamburger_icon.php'; ?>
+                            </button>
+                        </div>
                     </nav>
-                    <!-- MAIN NAV -->
+
                 </div>
-            </div>
+            </div> -->
 
             <!-- APP DESCRIPTION -->
             <?php if (get_bloginfo('description')  !== '') { ?>

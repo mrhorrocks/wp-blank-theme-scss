@@ -1,29 +1,29 @@
+.hamburger {
+  button {
+    width: 48px;
+    height: 48px;
+  }
+  /* hamburger */
+  @media (min-width: 576px) {
+    display: none;
+  }
+}
 nav {
-  background-color: pink;
+  background-color: chocolate;
   display: flex;
   justify-content: flex-end;
-  .hamburger {
-    button {
-      width: 48px;
-      height: 48px;
-    }
-    .hamburger-links {
-      position: absolute;
-      display: none;
-    }
-    /* hamburger */
-    @media (min-width: 768px) {
-      display: none;
-    }
-  }
-  .desktop-links {
+  .nav-menu-links {
     display: none;
-    background-color: chocolate;
-    padding-inline-start: 0;
-    margin-block: 0em;
+    width: 100%;
     ul {
       display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
       list-style: none;
+      width: 100%;
+      @media (min-width: 576px) {
+        flex-direction: row;
+      }
       li {
         &:not(:hover) ul.sub-menu {
           display: none;
@@ -38,15 +38,25 @@ nav {
           &:hover {
             background-color: darken(pink, 20%);
           }
+          &:focus {
+            border-bottom: 10px solid red;
+          }
         }
         ul.sub-menu {
           background-color: green;
-          position: absolute;
+          /* position: absolute; */
           display: flex;
           flex-direction: column;
+          @media (min-width: 576px) {
+            width: auto;
+            position: absolute;
+          }
           li {
             a {
               background-color: aqua;
+              &:hover {
+                background-color: darken(aqua, 15%);
+              }
             }
           }
         }
