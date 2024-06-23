@@ -15,6 +15,9 @@ nav {
   .nav-menu-links {
     display: none;
     width: 100%;
+    @media (min-width: 576px) {
+      display: block;
+    }
     ul {
       display: flex;
       flex-direction: column;
@@ -38,9 +41,6 @@ nav {
           &:hover {
             background-color: darken(pink, 20%);
           }
-          &:focus {
-            border-bottom: 10px solid red;
-          }
         }
         ul.sub-menu {
           background-color: green;
@@ -61,10 +61,6 @@ nav {
           }
         }
       }
-    }
-    /* nav */
-    @media (min-width: 768px) {
-      display: block;
     }
   }
 }

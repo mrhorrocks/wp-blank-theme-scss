@@ -1,25 +1,32 @@
 <?php get_header(); ?>
-<main>
-    <div class="container">
-        <h1>PAGE.PHP</h1>
-        <section>
+<div class="container">
+    <main id="page-content" class="grid cols-5">
+        <section id="page-content" class="col-span-3">
             <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
                     <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
                         <!-- PAGE TITLE -->
-                        <?php the_title(); ?>
+                        <h2 class="page-title">
+                            <?php the_title(); ?>
+                        </h2>
                         <!-- PAGE TITLE -->
                         <!-- EDIT PAGE -->
                         <?php
                         // edit_post_link();
                         ?>
                         <!-- EDIT PAGE -->
-                        <div class="entry-content" itemprop="mainContentOfPage">
+                        <div class="entry-content">
+                            <!-- FEARURED IMAGE -->
                             <?php if (has_post_thumbnail()) {
                                 the_post_thumbnail('full', array('itemprop' => 'image'));
                             } ?>
-                            <!-- SHOW CONTENT -->
+                            <!-- FEARURED IMAGE -->
+                            <!-- TEXT CONTENT -->
                             <?php the_content(); ?>
-                            <!-- SHOW CONTENT -->
+                            <!--  -->
+                            <?php
+                            // the_excerpt(); 
+                            ?>
+                            <!-- TEXT CONTENT -->
                             <div class="entry-links">
                                 <?php wp_link_pages(); ?>
                             </div>
@@ -31,9 +38,11 @@
             <?php endwhile;
             endif; ?>
         </section>
-        <?php
-        // get_sidebar(); 
-        ?>
-    </div>
-</main>
+        <section id="side-bar" class="col-span-2">
+            <?php
+            get_sidebar();
+            ?>
+        </section>
+    </main>
+</div>
 <?php get_footer(); ?>

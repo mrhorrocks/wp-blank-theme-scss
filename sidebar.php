@@ -1,7 +1,8 @@
 <?php if (is_active_sidebar('primary-widget-area')) : ?>
-    <div class="container">
+
+    <div class="side-bar">
         <h1>SIDEBAR.PHP</h1>
-        <aside id="sidebar" role="complementary">
+        <aside role="complementary">
             <div>
                 <ul>
                     <?php dynamic_sidebar('primary-widget-area'); ?>
@@ -9,4 +10,5 @@
             </div>
         </aside>
     </div>
+
 <?php endif; ?>
