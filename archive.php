@@ -1,4 +1,6 @@
-<?php get_header(); ?>
+<?php
+require('template-parts/header.php');
+?>
 <h1>ARCHIVE.php</h1>
 <header class="header">
     <h1 class="entry-title" itemprop="name"><?php the_archive_title(); ?></h1>
@@ -11,4 +13,6 @@
 <?php endwhile;
 endif; ?>
 <?php get_template_part('nav', 'below'); ?>
-<?php get_footer(); ?>
+<?php
+require('template-parts/footer.php');
+?>

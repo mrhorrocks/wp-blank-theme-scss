@@ -1,4 +1,6 @@
-<?php get_header(); ?>
+<?php
+require('template-parts/header.php');
+?>
 <h1>ATTACHMENT.php</h1>
 <?php global $post; ?>
 <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
@@ -31,4 +33,6 @@
         <?php comments_template(); ?>
 <?php endwhile;
 endif; ?>
-<?php get_footer(); ?>
+<?php
+require('template-parts/footer.php');
+?>

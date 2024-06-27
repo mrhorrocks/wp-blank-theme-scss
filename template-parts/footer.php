@@ -1,11 +1,9 @@
 <?php
 // get_sidebar();
 ?>
-<footer id="footer" role="contentinfo">
+<footer id="app-footer" role="contentinfo">
     <div class="container">
-        <div id="copyright">
-            &copy; <?php echo esc_html(date_i18n(__('Y', 'blankslate'))); ?> <?php echo esc_html(get_bloginfo('name')); ?>
-        </div>
+        FOOTER
         <?php
         wp_nav_menu(
             array(

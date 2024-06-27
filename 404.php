@@ -1,4 +1,6 @@
-<?php get_header(); ?>
+<?php
+require('template-parts/header.php');
+?>
 <h1>404.php</h1>
 <article id="post-0" class="post not-found">
     <header class="header">
@@ -9,4 +11,6 @@
         <?php get_search_form(); ?>
     </div>
 </article>
-<?php get_footer(); ?>
+<?php
+require('template-parts/footer.php');
+?>

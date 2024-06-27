@@ -15,7 +15,9 @@
 
                     <?php if (get_comment_pages_count() > 1) : ?>
                         <nav id="comments-nav-above" class="comments-navigation" role="navigation">
-                            <div class="paginated-comments-links"><?php paginate_comments_links(); ?></div>
+                            <div class="paginated-comments-links">
+                                <?php paginate_comments_links(); ?>
+                            </div>
                         </nav>
                     <?php endif; ?>
 
@@ -25,17 +27,24 @@
 
                     <?php if (get_comment_pages_count() > 1) : ?>
                         <nav id="comments-nav-below" class="comments-navigation" role="navigation">
-                            <div class="paginated-comments-links"><?php paginate_comments_links(); ?></div>
+                            <div class="paginated-comments-links">
+                                <?php paginate_comments_links(); ?>
+                            </div>
                         </nav>
                     <?php endif; ?>
                 </section>
+
             <?php
             endif;
             if (!empty($comments_by_type['pings'])) :
                 $ping_count = count($comments_by_type['pings']);
             ?>
                 <section id="trackbacks-list" class="comments">
-                    <h2 class="comments-title"><?php echo '<span class="ping-count">' . esc_html($ping_count) . '</span> ' . esc_html(_nx('Trackback or Pingback', 'Trackbacks and Pingbacks', $ping_count, 'comments count', 'blankslate')); ?></h2>
+
+                    <h2 class="comments-title">
+                        <?php echo '<span class="ping-count">' . esc_html($ping_count) . '</span> ' . esc_html(_nx('Trackback or Pingback', 'Trackbacks and Pingbacks', $ping_count, 'comments count', 'blankscss')); ?>
+                    </h2>
+
                     <ul>
                         <?php wp_list_comments('type=pings&callback=blankslate_custom_pings'); ?>
                     </ul>
@@ -44,6 +53,7 @@
             endif;
         endif;
         if (comments_open()) {
+            // SHOW THE COMMENT FORM
             comment_form();
         }
         ?>

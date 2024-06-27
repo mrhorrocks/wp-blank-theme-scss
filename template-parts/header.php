@@ -13,19 +13,19 @@
         wp_body_open();
     }
     ?>
-    <div class="container">
-        <header id="app-header">
+    <header id="app-header">
+        <div class="container">
             <div class="grid cols-2">
 
                 <div id="logo" class="col-span-2 sm:col-span-1">
                     <!-- LOGO -->
-                    <?php if (get_header_image()) : ?>
-                        <h1>
-                            <a href="<?php echo esc_url(home_url('/')); ?>" rel="home" title="<?php echo esc_attr(get_bloginfo('name')); ?>">
-                                <img src="<?php header_image(); ?>" width="<?php echo absint(get_custom_header()->width); ?>" height="<?php echo absint(get_custom_header()->height); ?>" alt="<?php echo esc_attr(get_bloginfo('name', 'display')); ?>">
-                            </a>
-                        </h1>
-                    <?php endif; ?>
+                    <?php
+                    if (function_exists('the_custom_logo') && has_custom_logo()) {
+                        the_custom_logo();
+                    } else {
+                        echo '<img src="' . get_template_directory_uri() . '/images/wp-logo-placeholder.png" alt="Default Logo">';
+                    }
+                    ?>
                     <!-- LOGO -->
 
                     <div class="hamburger">
@@ -48,6 +48,7 @@
                         ?>
                     </div>
                 </nav>
+
             </div>
 
             <!-- APP DESCRIPTION -->
@@ -59,10 +60,12 @@
             <!-- APP DESCRIPTION -->
 
             <!-- SEARCH -->
-            <div id="search">
-                <?php get_search_form(); ?>
-            </div>
+            <!-- <div id="search" class="col-span-2 sm:col-span-1"> -->
+            <?php
+            // get_search_form();
+            ?>
+            <!-- </div> -->
             <!-- SEARCH -->
 
-        </header>
-    </div>
+        </div>
+    </header>

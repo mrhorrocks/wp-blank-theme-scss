@@ -1,4 +1,6 @@
 .hamburger {
+  display: flex;
+  align-items: center;
   button {
     width: 48px;
     height: 48px;
@@ -15,8 +17,12 @@ nav {
   .nav-menu-links {
     display: none;
     width: 100%;
-    @media (min-width: 576px) {
+    &.open {
       display: block;
+    }
+    @media (min-width: 576px) {
+      display: flex;
+      align-items: center;
     }
     ul {
       display: flex;

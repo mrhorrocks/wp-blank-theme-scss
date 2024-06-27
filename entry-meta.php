@@ -1,9 +1,3 @@
-<style>
-    div.entry-meta {
-        background-color: blueviolet;
-    }
-</style>
-
 <div class="entry-meta">
     <h1>ENTRY-META.php</h1>
     <span class="author vcard" <?php if (is_single()) {

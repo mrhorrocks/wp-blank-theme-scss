@@ -1,5 +1,13 @@
 <?php
 
+// Exit if accessed directly
+// if (!defined('ABSPATH')) {
+//     exit;
+// }
+
+// Remove the <p> from around content
+remove_filter('the_content', 'wpautop');
+
 /**
  * BlankSCSS functions and definitions
  *
@@ -28,10 +36,8 @@ function blankscss_setup()
 	 * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
 	 */
     add_theme_support('post-thumbnails');
-
-    add_image_size('twentyseventeen-featured-image', 2000, 1200, true);
-
-    add_image_size('twentyseventeen-thumbnail-avatar', 100, 100, true);
+    add_image_size('blankscss-featured-image', 2000, 1200, true);
+    add_image_size('blankscss-thumbnail-avatar', 100, 100, true);
 
 
 
@@ -39,6 +45,17 @@ function blankscss_setup()
     add_theme_support('automatic-feed-links');
     add_theme_support('appearance-tools');
     add_theme_support('custom-header');
+    add_theme_support('starter-content');
+
+    // CUSTOM LOGO
+    add_theme_support('custom-logo', array(
+        'height'               => 100,
+        'width'                => 400,
+        'flex-height'          => true,
+        'flex-width'           => true,
+        'header-text'          => array('site-title', 'site-description'),
+        'unlink-homepage-logo' => true,
+    ));
 
     /*
 	 * Switch default core markup for search form, comment form, and comments
@@ -115,15 +132,15 @@ $starter_content = array(
     // Create the custom image attachments used as post thumbnails for pages.
     // 'attachments' => array(
     //     'image-espresso' => array(
-    //         'post_title' => _x('Espresso', 'Theme starter content', 'twentyseventeen'),
+    //         'post_title' => _x('Espresso', 'Theme starter content', 'blankscss'),
     //         'file'       => 'assets/images/espresso.jpg', // URL relative to the template directory.
     //     ),
     //     'image-sandwich' => array(
-    //         'post_title' => _x('Sandwich', 'Theme starter content', 'twentyseventeen'),
+    //         'post_title' => _x('Sandwich', 'Theme starter content', 'blankscss'),
     //         'file'       => 'assets/images/sandwich.jpg',
     //     ),
     //     'image-coffee'   => array(
-    //         'post_title' => _x('Coffee', 'Theme starter content', 'twentyseventeen'),
+    //         'post_title' => _x('Coffee', 'Theme starter content', 'blankscss'),
     //         'file'       => 'assets/images/coffee.jpg',
     //     ),
     // ),
@@ -158,7 +175,7 @@ $starter_content = array(
 
         // Assign a menu to the "social" location.
         'social' => array(
-            'name'  => __('Social Links Menu', 'twentyseventeen'),
+            'name'  => __('Social Links Menu', 'blankscss'),
             'items' => array(
                 'link_yelp',
                 'link_facebook',
@@ -178,22 +195,32 @@ $starter_content = array(
  * @param array $starter_content Array of starter content.
  */
 $starter_content = apply_filters('blankscss_starter_content', $starter_content);
-
 add_theme_support('starter-content', $starter_content);
+//
+
+function blankscss_prefix_setup()
+{
+    add_theme_support('custom-logo', array(
+        'height'      => 100,
+        'width'       => 400,
+        'flex-width' => true,
+    ));
+}
+add_action('after_setup_theme', 'blankscss_prefix_setup');
 
 // ADD CSS AN JS
-add_action('wp_enqueue_scripts', 'blankscss_enqueue');
 function blankscss_enqueue()
 {
     // CSS
     wp_enqueue_style('blankscss-style', get_stylesheet_uri());
-    wp_enqueue_style('custom', get_template_directory_uri() . '/customstyles/custom.css', array(), 1, 'all');
-    wp_enqueue_style('another_custom', get_template_directory_uri() . '/customstyles/another_custom.css', array(), 1, 'all');
+    wp_enqueue_style('custom', get_template_directory_uri() . '/assets/css/custom.css', array(), 1, 'all');
+    wp_enqueue_style('another_custom', get_template_directory_uri() . '/assets/css/another_custom.css', array(), 1, 'all');
     // JS
     wp_enqueue_script('jquery');
-    wp_enqueue_script('custom', get_template_directory_uri() . '/js/custom.js', array(), 1, 1, 1);
-    wp_enqueue_script('another_custom', get_template_directory_uri() . '/js/another_custom.js', array(), 1, 1, 1);
+    wp_enqueue_script('custom', get_template_directory_uri() . '/assets/js/custom.js', array(), 1, 1, 1);
+    wp_enqueue_script('another_custom', get_template_directory_uri() . '/assets/js/another_custom.js', array(), 1, 1, 1);
 }
+add_action('wp_enqueue_scripts', 'blankscss_enqueue');
 
 // DISABLE POSTS IN ADMIN
 // function remove_posts_menu()
@@ -218,22 +245,21 @@ function blankscss_custom_header_setup()
 add_action('after_setup_theme', 'blankscss_custom_header_setup');
 
 // ADD TO FOOTER
-add_action('wp_footer', 'blankscss_footer');
-function blankscss_footer()
-{
-    echo '<p>Footer content</p>';
-}
+// add_action('wp_footer', 'blankscss_footer');
+// function blankscss_footer()
+// {
+//     echo '<p>Footer content</p>';
+// }
 
 // TITLE TAG SEPARATOR
-add_filter('document_title_separator', 'blankscss_document_title_separator');
 function blankscss_document_title_separator($sep)
 {
     $sep = esc_html('|');
     return $sep;
 }
+add_filter('document_title_separator', 'blankscss_document_title_separator');
 
 // ADD TITLE FIELD TO PAGES
-add_filter('the_title', 'blankscss_title');
 function blankscss_title($title)
 {
     if ($title == '') {
@@ -242,6 +268,7 @@ function blankscss_title($title)
         return wp_kses_post($title);
     }
 }
+add_filter('the_title', 'blankscss_title');
 
 // ?
 function blankscss_schema_type()
@@ -260,7 +287,6 @@ function blankscss_schema_type()
 }
 
 // ADD ATTRIBUTES TO MENU ITEMS
-add_filter('nav_menu_link_attributes', 'blankscss_schema_url', 10);
 function blankscss_schema_url($atts)
 {
     $atts['itemprop'] = 'url';
@@ -272,13 +298,14 @@ if (!function_exists('blankscss_wp_body_open')) {
         do_action('wp_body_open');
     }
 }
+add_filter('nav_menu_link_attributes', 'blankscss_schema_url', 10);
 
 // ADD A SKIP TO CONTENT LINK ABOVE THE BODY TAG
-add_action('wp_body_open', 'blankscss_skip_link', 5);
 function blankscss_skip_link()
 {
     echo '<a href="#content" class="skip-link screen-reader-text">' . esc_html__('Skip to the content', 'blankscss') . '</a>';
 }
+add_action('wp_body_open', 'blankscss_skip_link', 5);
 
 // CHANGE THE EXCERPT TEXT
 function blankscss_excerpt_more($more)
@@ -286,6 +313,15 @@ function blankscss_excerpt_more($more)
     return '[.....]';
 }
 add_filter('excerpt_more', 'blankscss_excerpt_more');
+
+
+// Replaces the excerpt "Read More" text by a link
+function new_excerpt_more($more)
+{
+    global $post;
+    return '<a class="moretag" href="' . get_permalink($post->ID) . '"> Read the full article...</a>';
+}
+add_filter('excerpt_more', 'new_excerpt_more');
 
 ////////////////////////
 ////////////////////////
@@ -297,7 +333,7 @@ add_filter('excerpt_more', 'blankscss_excerpt_more');
 // INCREASE THE IMAGE SIZE THRESHHOLD TO 4000PX
 function mynamespace_big_image_size_threshold($threshold)
 {
-    return 100; // new threshold
+    return 2560; // new threshold in PIXELS
 }
 add_filter('big_image_size_threshold', 'mynamespace_big_image_size_threshold', 999, 1);
 // INCREASE THE IMAGE SIZE THRESHHOLD TO 4000PX
@@ -306,7 +342,6 @@ add_filter('big_image_size_threshold', 'mynamespace_big_image_size_threshold', 9
 ////////////////////////
 
 // ?
-add_filter('intermediate_image_sizes_advanced', 'blankscss_image_insert_override');
 function blankscss_image_insert_override($sizes)
 {
     unset($sizes['medium_large']);
@@ -314,59 +349,76 @@ function blankscss_image_insert_override($sizes)
     unset($sizes['2048x2048']);
     return $sizes;
 }
+add_filter('intermediate_image_sizes_advanced', 'blankscss_image_insert_override');
 
-// ?
-add_action('widgets_init', 'blankscss_widgets_init');
+// WIDGET CONFIG
 function blankscss_widgets_init()
 {
-    register_sidebar(array(
-        'name' => esc_html__('Sidebar Widget Area', 'blankscss'),
-        'id' => 'primary-widget-area',
-        'before_widget' => '<li id="%1$s" class="widget-container %2$s">',
-        'after_widget' => '</li>',
-        'before_title' => '<h3 class="widget-title">',
-        'after_title' => '</h3>',
-    ));
+    register_sidebar(
+        array(
+            'name' => esc_html__('Sidebar Widget Area', 'blankscss'),
+            'id' => 'sidebar-1',
+            'description'   => __('Widgets in this area will be shown under your single posts, before comments.', 'textdomain'),
+            // 'before_widget' => '<li id="%1$s" class="widget-container %2$s">',
+            // 'after_widget' => '</li>',
+            // 'before_title' => '<h3 class="widget-title">',
+            // 'after_title' => '</h3>',
+        )
+    );
+    register_sidebar(
+        array(
+            'name'          => __('Secondary Widget Area', 'blankscss'),
+            'id'            => 'sidebar-2',
+            'description'   => __('Appears on posts and pages in the sidebar.', 'blankscss'),
+            'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+            'after_widget'  => '</aside>',
+            'before_title'  => '<h3 class="widget-title">',
+            'after_title'   => '</h3>',
+        )
+    );
 }
+add_action('widgets_init', 'blankscss_widgets_init');
 
 // ? SECURITY
-add_action('wp_head', 'blankscss_pingback_header');
 function blankscss_pingback_header()
 {
     if (is_singular() && pings_open()) {
         printf('<link rel="pingback" href="%s">' . "\n", esc_url(get_bloginfo('pingback_url')));
     }
 }
+add_action('wp_head', 'blankscss_pingback_header');
 
 // ?
-add_action('comment_form_before', 'blankscss_enqueue_comment_reply_script');
 function blankscss_enqueue_comment_reply_script()
 {
     if (get_option('thread_comments')) {
         wp_enqueue_script('comment-reply');
     }
 }
+add_action('comment_form_before', 'blankscss_enqueue_comment_reply_script');
 
 // ?
 function blankscss_custom_pings($comment)
 {
 ?>
-    <li <?php comment_class(); ?> id="li-comment-<?php comment_ID(); ?>"><?php echo esc_url(comment_author_link()); ?></li>
+    <li <?php comment_class(); ?> id="li-comment-<?php comment_ID(); ?>">
+        <?php echo esc_url(comment_author_link()); ?>
+    </li>
 <?php
 }
 
 // ?
-add_filter('get_comments_number', 'blankscss_comment_count', 0);
 function blankscss_comment_count($count)
 {
     if (!is_admin()) {
         global $id;
         $get_comments = get_comments('status=approve&post_id=' . $id);
         $comments_by_type = separate_comments($get_comments);
-        return count($comments_by_type['comment']);
-        // return count($comments_by_type['comment'] = $get_comments);
+        // return count($comments_by_type['comment']);
+        return count($comments_by_type['comment'] = $get_comments);
     } else {
         return $count;
     }
 }
+add_filter('get_comments_number', 'blankscss_comment_count', 0);
 ?>
