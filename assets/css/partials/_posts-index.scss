@@ -1,0 +1,38 @@
+article {
+  background-color: lightblue;
+  margin: 1rem 0;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  .post-article {
+    &--title {
+      background-color: red;
+      font-size: 1.5rem;
+      padding: 0.5rem 0;
+      a {
+        text-decoration: none;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+    &--meta {
+      background-color: pink;
+      padding: 0.5rem 0;
+      font-size: 0.8rem;
+      a {
+        text-decoration: none;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+    &--summary {
+      background-color: lightcoral;
+      padding: 0.5rem 0;
+    }
+    &--content {
+      background-color: #e9a0a0;
+      padding: 0.5rem 0;
+    }
+  }
+}

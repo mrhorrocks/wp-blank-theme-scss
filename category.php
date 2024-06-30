@@ -1,18 +1,33 @@
-<?php
-require('template-parts/header.php');
-?>
-<h1>CALEGORY.php</h1>
-<header class="header">
-    <h1 class="entry-title" itemprop="name"><?php single_term_title(); ?></h1>
-    <div class="archive-meta" itemprop="description"><?php if ('' != get_the_archive_description()) {
-                                                            echo esc_html(get_the_archive_description());
-                                                        } ?></div>
-</header>
-<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-        <?php get_template_part('entry'); ?>
-<?php endwhile;
-endif; ?>
-<?php get_template_part('nav', 'below'); ?>
-<?php
-require('template-parts/footer.php');
-?>
+<!-- THIS FILE DISPLAYS EXCERPTS ON THE CATEGORY INDEX PAGE-->
+<?php require('template-parts/header.php'); ?>
+
+<main id="category-index">
+    <div class="container">
+        <section>
+            <div class="page-heading">
+                <h2 class="post-title" itemprop="name">
+                    <?php single_term_title(); ?>
+                </h2>
+
+                <?php if ('' != get_the_archive_description()) : ?>
+                    <!-- <P> -->
+                    <?php echo get_the_archive_description(); ?>
+                    <!-- <P> -->
+                <?php endif; ?>
+            </div>
+
+            <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+                    <!-- <ARTICLE> -->
+                    <?php get_template_part('entry'); ?>
+                    <!-- <ARTICLE> -->
+            <?php endwhile;
+            endif;
+            get_template_part('nav', 'below');
+            ?>
+
+        </section>
+    </div>
+</main>
+
+<!-- FOOTER -->
+<?php require('template-parts/footer.php'); ?>

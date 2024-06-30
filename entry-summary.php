@@ -1,6 +1,6 @@
-<div class="entry-summary">
-    <h1>ENTRY-SUMMARY.php</h1>
-
+<!-- THIS FILE DISPLAYS A SUMMARY ON THE /POSTS INDEX PAGE-->
+<!-- <h1>ENTRY-SUMMARY.php</h1> -->
+<div class="post-article--summary">
     <?php if ((has_post_thumbnail()) && (!is_search())) : ?>
         <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
             <?php the_post_thumbnail(); ?>

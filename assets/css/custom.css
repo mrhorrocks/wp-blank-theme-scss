@@ -82,13 +82,46 @@ html {
   height: 100%;
 }
 html body {
+  font-size: 1em;
+  height: 100%;
+  scroll-behavior: smooth;
   background: #ededed;
   font-family: Roboto;
+}
+
+.app-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 .container {
   max-width: 1024px;
   margin: 0 auto;
+}
+
+main {
+  flex-grow: 1;
+}
+
+main#posts-index .page-heading h2.post-title,
+main#category-index .page-heading h2.post-title,
+main#search-index .page-heading h2.post-title {
+  font-size: 2.5rem;
+  color: darkgoldenrod;
+}
+main#posts-index .page-heading p,
+main#category-index .page-heading p,
+main#search-index .page-heading p {
+  margin: 1rem 0;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
 }
 
 @font-face {
@@ -731,10 +764,26 @@ header#app-header div#logo {
   font-size: 0;
 }
 
-input.search-field {
+form.search-form {
+  display: flex;
+  margin-top: 1rem;
+}
+
+input[type~=search] {
   background-color: pink;
   border: 0;
-  line-height: 1.5rem;
+  line-height: 3rem;
+  width: 400px;
+  padding: 0;
+  font-size: 1rem;
+  border: 3px solid black;
+  text-indent: 1rem;
+}
+
+button.search-submit {
+  background-color: red;
+  cursor: pointer;
+  border: 0;
 }
 
 .featured-image {
@@ -758,6 +807,7 @@ input.search-field {
 .hamburger button {
   width: 48px;
   height: 48px;
+  cursor: pointer;
 }
 @media (min-width: 576px) {
   .hamburger {
@@ -765,25 +815,25 @@ input.search-field {
   }
 }
 
-nav {
+nav#nav-top {
   background-color: chocolate;
   display: flex;
   justify-content: flex-end;
 }
-nav .nav-menu-links {
+nav#nav-top .nav-menu-links {
   display: none;
   width: 100%;
 }
-nav .nav-menu-links.open {
+nav#nav-top .nav-menu-links.open {
   display: block;
 }
 @media (min-width: 576px) {
-  nav .nav-menu-links {
+  nav#nav-top .nav-menu-links {
     display: flex;
     align-items: center;
   }
 }
-nav .nav-menu-links ul {
+nav#nav-top .nav-menu-links ul {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -791,14 +841,14 @@ nav .nav-menu-links ul {
   width: 100%;
 }
 @media (min-width: 576px) {
-  nav .nav-menu-links ul {
+  nav#nav-top .nav-menu-links ul {
     flex-direction: row;
   }
 }
-nav .nav-menu-links ul li:not(:hover) ul.sub-menu {
+nav#nav-top .nav-menu-links ul li:not(:hover) ul.sub-menu {
   display: none;
 }
-nav .nav-menu-links ul li a {
+nav#nav-top .nav-menu-links ul li a {
   display: flex;
   background-color: pink;
   color: black;
@@ -806,26 +856,37 @@ nav .nav-menu-links ul li a {
   padding: 1rem;
   cursor: pointer;
 }
-nav .nav-menu-links ul li a:hover {
+nav#nav-top .nav-menu-links ul li a:hover {
   background-color: #ff5a77;
 }
-nav .nav-menu-links ul li ul.sub-menu {
+nav#nav-top .nav-menu-links ul li a:active {
+  background-color: yellow;
+}
+nav#nav-top .nav-menu-links ul li ul.sub-menu {
   background-color: green;
   /* position: absolute; */
   display: flex;
   flex-direction: column;
 }
 @media (min-width: 576px) {
-  nav .nav-menu-links ul li ul.sub-menu {
+  nav#nav-top .nav-menu-links ul li ul.sub-menu {
     width: auto;
     position: absolute;
   }
 }
-nav .nav-menu-links ul li ul.sub-menu li a {
+nav#nav-top .nav-menu-links ul li ul.sub-menu li a {
   background-color: aqua;
 }
-nav .nav-menu-links ul li ul.sub-menu li a:hover {
+nav#nav-top .nav-menu-links ul li ul.sub-menu li a:hover {
   background-color: #00b3b3;
+}
+
+nav.navigation {
+  background-color: cornflowerblue;
+}
+nav.navigation .nav-links {
+  display: flex;
+  justify-content: flex-end;
 }
 
 section#front-page .page-content {
@@ -834,6 +895,50 @@ section#front-page .page-content {
 
 main#page-content {
   background-color: lightblue;
+}
+
+.side-bar {
+  background-color: lightblue;
+  padding: 1rem;
+  margin: 1rem;
+  border-radius: 0.5rem;
+}
+
+article {
+  background-color: lightblue;
+  margin: 1rem 0;
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+article .post-article--title {
+  background-color: red;
+  font-size: 1.5rem;
+  padding: 0.5rem 0;
+}
+article .post-article--title a {
+  text-decoration: none;
+}
+article .post-article--title a:hover {
+  text-decoration: underline;
+}
+article .post-article--meta {
+  background-color: pink;
+  padding: 0.5rem 0;
+  font-size: 0.8rem;
+}
+article .post-article--meta a {
+  text-decoration: none;
+}
+article .post-article--meta a:hover {
+  text-decoration: underline;
+}
+article .post-article--summary {
+  background-color: lightcoral;
+  padding: 0.5rem 0;
+}
+article .post-article--content {
+  background-color: #e9a0a0;
+  padding: 0.5rem 0;
 }
 
 footer {

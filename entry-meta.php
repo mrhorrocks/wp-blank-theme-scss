@@ -1,5 +1,4 @@
-<div class="entry-meta">
-    <h1>ENTRY-META.php</h1>
+<div class="post-article--meta">
     <span class="author vcard" <?php if (is_single()) {
                                     echo ' itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="name">';
                                 } else {

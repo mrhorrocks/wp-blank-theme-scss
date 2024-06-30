@@ -15,6 +15,10 @@
         ?>
     </div>
 </footer>
+
+<!-- app-wrapper close -->
+</div>
+<!-- app-wrapper close -->
 <?php wp_footer(); ?>
 </body>
 
