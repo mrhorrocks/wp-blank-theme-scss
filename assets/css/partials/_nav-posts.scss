@@ -3,5 +3,14 @@ nav.navigation {
   .nav-links {
     display: flex;
     justify-content: flex-end;
+    a {
+      background-color: red;
+      padding: 0.5rem;
+      display: flex;
+      &:hover {
+        background-color: darken(red, 10%);
+        color: white;
+      }
+    }
   }
 }

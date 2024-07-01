@@ -1,8 +1,10 @@
-<h1>NAV-BELOW-SINGLE.php</h1>
 <!-- NEXT/PREVIOUS POST -->
 <?php $args = array(
-    'prev_text' => '<span class="meta-nav">&larr;</span> %title',
-    'next_text' => '%title <span class="meta-nav">&rarr;</span>'
+    // 'screen_reader_text' => __('Posts Navigation'),
+    'aria_label'         => __('Posts'),
+    'class'              => 'posts-navigation',
+    'prev_text' => ' %title ', // Can be <html>
+    'next_text' => ' %title ' // Can be <html>
 );
 the_post_navigation($args);
 ?>

@@ -888,6 +888,15 @@ nav.navigation .nav-links {
   display: flex;
   justify-content: flex-end;
 }
+nav.navigation .nav-links a {
+  background-color: red;
+  padding: 0.5rem;
+  display: flex;
+}
+nav.navigation .nav-links a:hover {
+  background-color: #cc0000;
+  color: white;
+}
 
 section#front-page .page-content {
   background-color: #ff98a9;

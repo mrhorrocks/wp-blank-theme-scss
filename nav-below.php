@@ -1,8 +1,8 @@
-<!-- PAGINATION FOR THE POSTS/CAT/404 PAGE -->
+<!-- PAGINATION FOR THE CATEGORIES/404 PAGE -->
 <?php $args = array(
-    // 'prev_text' => sprintf(esc_html__('%s older', 'blankslate'), ''),
-    // 'next_text' => sprintf(esc_html__('newer %s', 'blankslate'), '')
-    'prev_text' => sprintf('<button>Older</button>'),
-    'next_text' => sprintf('<button>Newer</button>')
+    'prev_text' => 'Older', // Can be <html>
+    'next_text' => 'Newer' // Can be <html>
 );
-the_posts_navigation($args); ?>
+the_posts_navigation($args);
+?>
+<!-- NEXT/PREVIOUS POST -->
