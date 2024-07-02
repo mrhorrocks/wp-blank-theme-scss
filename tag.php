@@ -1,22 +1,34 @@
+<!-- THIS FILE DISPLAYS EXCERPTS ON THE TAG INDEX PAGE-->
 <?php require('template-parts/header.php'); ?>
 
-<header class="header">
+<main id="category-index">
 
-    <h1 class="entry-title" itemprop="name">
-        <?php single_term_title(); ?>
-    </h1>
+    <div class="container">
+        <section>
+            <div class="page-heading">
+                <h2 class="post-title" itemprop="name">
+                    <?php single_term_title(); ?>
+                </h2>
 
-    <div class="archive-meta" itemprop="description">
-        <?php if ('' != get_the_archive_description()) {
-            echo esc_html(get_the_archive_description());
-        } ?>
+                <?php if ('' != get_the_archive_description()) {
+                    // 
+                    echo get_the_archive_description();
+                    // 
+                } ?>
+            </div>
+
+            <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+                    <!-- <ARTICLE> -->
+                    <?php get_template_part('entry'); ?>
+                    <!-- <ARTICLE> -->
+            <?php endwhile;
+            endif;
+            get_template_part('nav', 'below');
+            ?>
+
+        </section>
     </div>
-</header>
-<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-        <?php get_template_part('entry'); ?>
-<?php endwhile;
-endif; ?>
+</main>
 
-<?php get_template_part('nav', 'below'); ?>
-
+<!-- FOOTER -->
 <?php require('template-parts/footer.php'); ?>

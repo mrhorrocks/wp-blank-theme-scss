@@ -2,6 +2,7 @@
 <?php require('template-parts/header.php'); ?>
 
 <main id="category-index">
+
     <div class="container">
         <section>
             <div class="page-heading">
