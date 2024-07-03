@@ -13,6 +13,7 @@
     <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" rel="bookmark">
         <?php the_title(); ?>
     </a>
+    <?php edit_post_link('Edit'); ?>
     <!-- TITLE -->
 
     <?php if (is_singular()) {
@@ -20,12 +21,6 @@
     } else {
         echo '</h2>';
     } ?>
-
-    <!-- EDIT POST -->
-    <?php
-    // edit_post_link();
-    ?>
-    <!-- EDIT POST -->
 
     <?php if (!is_search()) {
         get_template_part('entry', 'meta');

@@ -1,6 +1,5 @@
-<?php
-require('template-parts/header.php');
-?>
+<?php require('template-parts/header.php'); ?>
+
 <!-- SHOW AURTOR DETAILS -->
 <div class="container">
     <h1>AUTHOR.php</h1>
@@ -25,6 +24,5 @@ require('template-parts/header.php');
     <?php get_template_part('nav', 'below'); ?>
 </div>
 <!-- SHOW AURTOR DETAILS -->
-<?php
-require('template-parts/footer.php');
-?>
+
+<?php require('template-parts/footer.php'); ?>

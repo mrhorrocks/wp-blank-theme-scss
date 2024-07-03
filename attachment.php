@@ -1,12 +1,16 @@
-<?php
-require('template-parts/header.php');
-?>
+<?php require('template-parts/header.php'); ?>
+
 <h1>ATTACHMENT.php</h1>
 <?php global $post; ?>
 <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
         <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+
             <header class="header">
-                <h1 class="entry-title" itemprop="name"><?php the_title(); ?></h1> <?php edit_post_link(); ?>
+                <h1 class="entry-title" itemprop="name">
+                    <?php the_title(); ?>
+                </h1>
+                <?php edit_post_link(); ?>
+
                 <?php get_template_part('entry', 'meta'); ?>
                 <a href="<?php echo esc_url(get_permalink($post->post_parent)); ?>" title="<?php printf(esc_attr__('Return to %s', 'blankslate'), esc_attr(get_the_title($post->post_parent), 1)); ?>" rev="attachment"><?php printf(esc_attr__('%s Return to ', 'blankslate'), '<span class="meta-nav">&larr;</span>'); ?><?php echo wp_kses_post(get_the_title($post->post_parent)); ?></a>
                 <nav id="nav-above" class="navigation">
@@ -14,6 +18,7 @@ require('template-parts/header.php');
                     <div class="nav-next"><?php next_image_link(false, '&rsaquo;'); ?></div>
                 </nav>
             </header>
+
             <div class="entry-content" itemprop="mainContentOfPage">
                 <div class="entry-attachment">
                     <?php if (wp_attachment_is_image($post->ID)) : $att_image = wp_get_attachment_image_src($post->ID, 'full'); ?>
@@ -33,6 +38,5 @@ require('template-parts/header.php');
         <?php comments_template(); ?>
 <?php endwhile;
 endif; ?>
-<?php
-require('template-parts/footer.php');
-?>
+
+<?php require('template-parts/footer.php'); ?>

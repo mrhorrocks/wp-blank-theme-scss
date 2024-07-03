@@ -786,6 +786,11 @@ button.search-submit {
   border: 0;
 }
 
+h2 {
+  font-size: 1.5rem;
+  padding: 0.5rem 0;
+}
+
 .featured-image {
   background-color: green;
   height: 160px;
@@ -920,6 +925,8 @@ article {
   border-radius: 0.5rem;
 }
 article .post-article--title {
+  display: flex;
+  justify-content: space-between;
   background-color: red;
   font-size: 1.5rem;
   padding: 0.5rem 0;
@@ -948,6 +955,70 @@ article .post-article--summary {
 article .post-article--content {
   background-color: #e9a0a0;
   padding: 0.5rem 0;
+}
+
+#comments {
+  background-color: aquamarine;
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+#comments .comment-respond {
+  background-color: lightsteelblue;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  margin: 1rem 0;
+}
+#comments .comment-respond h3 {
+  font-size: 1.5rem;
+  padding: 0.5rem 0;
+}
+#comments .comment-respond form {
+  display: flex;
+  flex-direction: column;
+}
+#comments .comment-respond form p {
+  padding: 0.5rem 0;
+}
+#comments .comment-respond form textarea {
+  font-family: Roboto;
+  font-size: 1rem;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  margin: 0.5rem 0;
+  border: 0;
+}
+#comments .comment-respond form input[type=submit] {
+  background-color: red;
+  border: 0;
+  padding: 0.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+}
+#comments .comment-respond form input[type=submit]:hover {
+  background-color: #cc0000;
+  color: white;
+}
+#comments .comments-nav {
+  background-color: cornflowerblue;
+  padding: 1rem;
+}
+#comments .comments-nav .paginated-comments-links {
+  display: flex;
+  flex-direction: row;
+}
+#comments .comments-nav .page-numbers {
+  background-color: #cccc00;
+  display: flex;
+  justify-content: center;
+  padding: 0.5rem;
+  min-width: 50px;
+}
+#comments .comments-nav .page-numbers:hover {
+  background-color: yellow;
+}
+#comments .comments-nav .page-numbers.current {
+  background-color: #b3b300;
+  cursor: default;
 }
 
 footer {
